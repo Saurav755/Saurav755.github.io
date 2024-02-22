@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hamburger</title>
+
+  <style>
+ body{
+  margin: 0%;
+ }
+ :root{
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: #333;
+  --background: rgb(173, 200, 200);
+  --animation-timing: 200ms ease in out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(var(--hamburger-gap)))
+
+ }
+.bugger{
+--x-width: calc(var(--bar-width) * 0.65);
+  
+  display: flex;
+  flex-direction: column;
+    gap: 6px;
+    width: max-content;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    z-index: 3;
+}
+
+ .bugger:has(input:checked) + .sidebar{
+  translate: 0;
+
+}
+ .bugger::before,
+ .bugger::after,
+ .bugger input{
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: black;
+  border-radius: 9999px;
+  transition: opacity var(--animation-timing), width var(--animation-timing);
+  transform-origin: left center;
+ }
+ .bugger input{
+  padding: 0%;
+  margin: 0%;
+  appearance: none;
+  pointer-events: none;
+ }
+ .bugger input:checked{
+  opacity: 0;
+  width: 0;
+  /* transition: opacity var(--animation-timing), width var(--animation-timing); */
+
+ }
+ .bugger:has(input:checked)::after{
+  rotate: -45deg;
+  width: var(--x-width);
+
+ }
+ .bugger:has(input:checked)::before{
+ rotate: 45deg;
+ width: var(--x-width);
+ }
+
+
+ .sidebar{
+  display: none ;
+  height: 200px;
+  width: 200px;
+  background-color: antiquewhite;
+  position: absolute;
+ }
+ .bugger:hover + .sidebar
+ /* .bugger:checked + .sidebar */
+ {
+  display: block;
+ }
+  </style>
+</head>
+<body>
+ <label class="bugger">
+  <input type="checkbox" >
+ </label>
+ <aside class="sidebar">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+ </aside>
+  </div>
+</body>
+</html>
